@@ -7,8 +7,9 @@ import { Owned } from "solmate/access/Ownable.sol";
 /// @title Aqueduct
 /// @author 0xZakk (https://www.twitter.com/0xZakk)
 /// @notice A timelock-style, treasury contract for holding funds until a certain threshold is met, then releasing them to a quadratic funding round.
-/// @dev This contract works with any ERC20 token, but is not written to work with more than one token or with native Eth. This contract is a work in progress and is not yet audited. Use at your own risk.
+/// @dev This contract works with any ERC20 token, but is not written to work with more than one token or with native Eth. This contract aumes a trusted owner, likely a governance system like Governor Bravo. This contract is a work in progress and is not yet audited. Use at your own risk.
 contract Aqueduct is Owned {
+  // TODO: add a way to track previou rounds and logic for round cadence (i.e. every three months) o that when the aqueduct fills up faster over time, rounds aren't happening too frequently.
   //
   // Type declarations
   //

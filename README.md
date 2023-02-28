@@ -1,58 +1,47 @@
-<img align="right" width="150" height="150" top="100" src="./public/readme.jpg">
+# 🧜‍♀️ Aqueduct
 
-# femplate • [![tests](https://github.com/refcell/femplate/actions/workflows/ci.yml/badge.svg?label=tests)](https://github.com/refcell/femplate/actions/workflows/ci.yml) ![license](https://img.shields.io/github/license/refcell/femplate?label=license) ![solidity](https://img.shields.io/badge/solidity-^0.8.17-lightgrey)
+Grow your ecosystem in a truly decentralized way.
 
-A **Clean**, **Robust** Template for Foundry Projects.
+As your project gains revenue, earns protocol fees, or inflates token supply,
+siphon off a portion into an aqueduct contract. When a threshold is met, an Allo
+grants round can be triggered by anyone, kicking off a distribution of funds
+back to the ecosystem.
 
-### Usage
+## Usage
 
-**Building & Testing**
+Deploy the [`Aqueduct.sol`](./src/Aqueduct.sol) contract using the provided
+deploy scripts and transfer ownership to your community's democratic, onchain
+governance system.
 
-Build the foundry project with `forge build`. Then you can run tests with `forge test`.
+You'll then want to set up a way for your aqueduct to be filled by protocol
+fees, token inflation, or some other means. You can use a [splits
+contract](https://www.0xsplits.xyz/) for this. Or you can build it into your
+protocol that the aqueduct is filled.
 
-**Deployment & Verification**
+When your aqueduct meets it's token threshold, anyone in the community can
+invoke `release` to kick-off and fund a grants round.
 
-Inside the [`utils/`](./utils/) directory are a few preconfigured scripts that can be used to deploy and verify contracts.
+### Considerations
 
-Scripts take inputs from the cli, using silent mode to hide any sensitive information.
+**Ownership:** What address will own your aqueduct. This address will have
+important permissions that configure the aqueduct and the allocation rounds it
+creates. It would be best to have the contract owned by a democratic, on-chain
+governance system.
 
-_NOTE: These scripts are required to be _executable_ meaning they must be made executable by running `chmod +x ./utils/*`._
+**Round Size and Cadence:** The aqueduct will transfer the entire balance of
+a given token into a round on release. As your ecosystem grows, this could mean
+that rounds happen more frequently, because the aqueduct refills faster.
 
-_NOTE: these scripts will prompt you for the contract name and deployed addresses (when verifying). Also, they use the `-i` flag on `forge` to ask for your private key for deployment. This uses silent mode which keeps your private key from being printed to the console (and visible in logs)._
+## Disclaimer
 
+_These smart contracts are being provided as is. No guarantee, representation or
+warranty is being made, express or implied, as to the safety or correctness of
+the user interface or the smart contracts. They have not been audited and as
+such there can be no assurance they will work as intended, and users may
+experience delays, failures, errors, omissions, loss of transmitted information
+or loss of funds. The creators are not liable for any of the foregoing. Users
+should proceed with caution and use at their own risk._
 
-### I'm new, how do I get started?
-
-We created a guide to get you started with: [GETTING_STARTED.md](./GETTING_STARTED.md).
-
-
-### Blueprint
-
-```txt
-lib
-├─ forge-std — https://github.com/foundry-rs/forge-std
-├─ solmate — https://github.com/transmissions11/solmate
-scripts
-├─ Deploy.s.sol — Example Contract Deployment Script
-src
-├─ Greeter — Example Contract
-test
-└─ Greeter.t — Example Contract Tests
-```
-
-
-### Notable Mentions
-
-- [femplate](https://github.com/refcell/femplate)
-- [foundry](https://github.com/foundry-rs/foundry)
-- [solmate](https://github.com/Rari-Capital/solmate)
-- [forge-std](https://github.com/brockelmore/forge-std)
-- [forge-template](https://github.com/foundry-rs/forge-template)
-- [foundry-toolchain](https://github.com/foundry-rs/foundry-toolchain)
-
-
-### Disclaimer
-
-_These smart contracts are being provided as is. No guarantee, representation or warranty is being made, express or implied, as to the safety or correctness of the user interface or the smart contracts. They have not been audited and as such there can be no assurance they will work as intended, and users may experience delays, failures, errors, omissions, loss of transmitted information or loss of funds. The creators are not liable for any of the foregoing. Users should proceed with caution and use at their own risk._
+## License
 
 See [LICENSE](./LICENSE) for more details.
