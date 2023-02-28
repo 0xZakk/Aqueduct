@@ -3,9 +3,10 @@ pragma solidity ^0.8.17;
 
 import "forge-std/Test.sol";
 
-import {Greeter} from "src/Greeter.sol";
+import { TestBase } from './Base.t.sol';
+import { Aqueduct } from "src/Aqueduct.sol";
 
-contract GreeterTest is Test {
+contract AqueductTest is TestBase {
     using stdStorage for StdStorage;
 
     Greeter greeter;
