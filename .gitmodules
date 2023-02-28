@@ -4,3 +4,6 @@
 [submodule "lib/solmate"]
 	path = lib/solmate
 	url = https://github.com/transmissions11/solmate
+[submodule "lib/grants-round"]
+	path = lib/grants-round
+	url = https://github.com/gitcoinco/grants-round/
